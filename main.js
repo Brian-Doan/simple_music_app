@@ -1,7 +1,7 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-const wrapper = $('.wrapper')
+const container = $('.container')
 const thumbnail = $('.thumbnail')
 const title = $('h2.thumbnail__title')
 const thumbnailImg = $('.thumbnail__img')
@@ -133,14 +133,14 @@ const app = {
         // When the song is playing
         audio.onplay = function() {
             _this.isPlaying = true
-            wrapper.classList.add('playing')
+            container.classList.add('playing')
             thumbnailImgAnimate.play()
         }
 
         // When the song pauses
         audio.onpause = function() {
             _this.isPlaying = false
-            wrapper.classList.remove('playing')
+            container.classList.remove('playing')
             thumbnailImgAnimate.pause()
         }
 

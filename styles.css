@@ -130,11 +130,23 @@ html {
     background-color: var(--primary-color);
 }
 
-.control .btn-toggle-play .icon-pause {
+/* .control .btn-toggle-play .icon-pause {
     display: inline-block;
 }
 
 .control .btn-toggle-play .icon-play {
+    display: none;
+} */
+
+.container .icon-pause {
+    display: none;
+}
+
+.container.playing .icon-pause {
+    display: inline-block;
+}
+
+.container.playing .icon-play {
     display: none;
 }
 
