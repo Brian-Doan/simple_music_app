@@ -13,6 +13,12 @@ const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random')
 const repeatBtn = $('.btn-repeat')
 const playlist = $('.playlist')
+const overlayBg = $('.overlay')
+const overlayMsg = $('.overlay__msg')
+const overlayInput = $('#overlay-confirm')
+const hideOverlayBtn = $('.btn-confirm')
+
+console.log('overlayInput checked: ', overlayInput.checked)
 
 const PLAYER_STORAGE_KEY = "Mon's Beat"
 
@@ -21,12 +27,43 @@ const app = {
     isPlaying: false,
     isRepeat: false,
     isRandom: false,
+    isHiddenOverlay: false,
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
 
     songs: [
         {
-            name: 'Talking to the moon - Rap version',
-            path: './assets/songs/Talking_to_the_moon_rap_ver.mp3',
+            name: 'Ai chung tình được mãi',
+            path: './assets/songs/Ai_chung_tinh_duoc_mai.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Ai là người thương em - Rap version',
+            path: './assets/songs/Ai_la_nguoi_thuong_em_rap_version.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Ai rồi cũng khác',
+            path: './assets/songs/Ai_roi_cung_khac.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Ánh nắng của anh',
+            path: './assets/songs/Anh_nang_cua_anh_guitar.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'As long as you love me - Duet with Bieber',
+            path: './assets/songs/As_long_as_you_love_me_duet.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Cánh hồng phai',
+            path: './assets/songs/Canh_hong_phai.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Chân tình',
+            path: './assets/songs/Chan_tinh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
@@ -35,8 +72,13 @@ const app = {
             thumb: './assets/image/thumb.jpg'
         },
         {
-            name: 'Diễm Xưa - Guitar Solo',
-            path: './assets/songs/Diem_xua_guitar_solo.mp3',
+            name: 'Chuyện của mùa đông',
+            path: './assets/songs/Chuyen_cua_mua_dong.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Chuyện tình người trinh nữ tên Thi',
+            path: './assets/songs/Chuyen_tinh_nguoi_trinh_nu_ten_thi.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
@@ -45,13 +87,158 @@ const app = {
             thumb: './assets/image/thumb.jpg'
         },
         {
+            name: 'Công chúa bong bóng',
+            path: './assets/songs/Cong_chua_bong_bong.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Crying over you - Rap only',
+            path: './assets/songs/Crying_over_you_only_rap.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Diễm xưa',
+            path: './assets/songs/Diem_xua.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Diễm xưa - Guitar Solo',
+            path: './assets/songs/Diem_xua_guitar_solo.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Đúng người đúng thời điểm',
+            path: './assets/songs/Dung_nguoi_dung_thoi_diem.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Đừng quên tên anh',
+            path: './assets/songs/Dung_quen_ten_anh.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Em dạo này',
+            path: './assets/songs/Em_dao_nay.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Gặp nhưng không ở lại',
+            path: './assets/songs/Gap_nhung_khong_o_lai.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Giấc mơ chỉ là giấc mơ',
+            path: './assets/songs/Giac_mo_chi_la_giac_mo.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Gió vẫn hát',
+            path: './assets/songs/Gio_van_hat.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Gió vẫn hát - Guitar',
+            path: './assets/songs/Gio_van_hat_guitar.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Giữa mây ngàn',
+            path: './assets/songs/Giua_may_ngan.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Katy Katy',
+            path: './assets/songs/Katy_katy.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Khi cô đơn em nhớ ai',
+            path: './assets/songs/Khi_co_don_em_nho_ai.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Khi người lớn cô đơn',
+            path: './assets/songs/Khi_nguoi_lon_co_don.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Không quan tâm - Short',
+            path: './assets/songs/Khong_quan_tam_short.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Lạ lùng',
+            path: './assets/songs/La_lung.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Mashup Phan Mạnh Quỳnh',
+            path: './assets/songs/Mashup_Phan_Manh_Quynh.mp3.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Melancholy',
+            path: './assets/songs/Melancholy.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Một thời đã xa',
+            path: './assets/songs/Mot_thoi_da_xa.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Nếu em đi',
+            path: './assets/songs/Neu_em_di.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Nếu như',
+            path: './assets/songs/Neu_nhu.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
             name: 'Ngày mai sẽ khác',
             path: './assets/songs/Ngay_mai_se_khac.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
-            name: 'Chiều nay không có mưa bay',
-            path: './assets/songs/Chieu_nay_khong_co_mua_bay.mp3',
+            name: 'Người ta nói',
+            path: './assets/songs/Nguoi_ta_noi.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Nhạc chế Trung thu',
+            path: './assets/songs/Nhac_che_trung_thu.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Nhỏ ơi',
+            path: './assets/songs/Nho_oi.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Nơi này có anh',
+            path: './assets/songs/Noi_nay_co_anh.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Nửa vầng trăng - Không Beat',
+            path: './assets/songs/Nua_vang_trang_nobeat.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Phai dấu cuộc tình',
+            path: './assets/songs/Phai_dau_cuoc_tinh.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Phố không em',
+            path: './assets/songs/Pho_khong_em.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Real love',
+            path: './assets/songs/Real_love.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
@@ -60,10 +247,60 @@ const app = {
             thumb: './assets/image/thumb.jpg'
         },
         {
-            name: 'Chiều nay không có mưa bay',
-            path: './assets/songs/Chieu_nay_khong_co_mua_bay.mp3',
+            name: 'Thất tình',
+            path: './assets/songs/La_lung.mp3',
             thumb: './assets/image/thumb.jpg'
-        }
+        },
+        {
+            name: 'Thương lắm mình ơi - Không Beat',
+            path: './assets/songs/Thuong_lam_minh_oi_nobeat.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Tình đơn côi',
+            path: './assets/songs/Tinh_don_coi.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Tình em là đại dương - Không Beat',
+            path: './assets/songs/Tinh_em_la_dai_duong_nobeat.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Tình thôi xót xa',
+            path: './assets/songs/Tinh_thoi_xot_xa.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Tình yêu mang theo',
+            path: './assets/songs/Tinh_yeu_mang_theo.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Từ chối nhẹ nhàng thôi',
+            path: './assets/songs/Tu_choi_nhe_nhang_thoi.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Tự tâm - Short',
+            path: './assets/songs/Tu_tam_short.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Tuổi đá buồn',
+            path: './assets/songs/Tuoi_da_buon.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'Tuyết rơi mùa hè',
+            path: './assets/songs/Tuyet_roi_mua_he.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
+        {
+            name: 'You and only You - Nhạc Thái',
+            path: './assets/songs/You_and_only_you.mp3',
+            thumb: './assets/image/thumb.jpg'
+        },
     ],
 
     /* Set the localStorage config for buttons: Repeat button, Random button */
@@ -228,14 +465,31 @@ const app = {
                 _this.scrollToActiveSong()
             }
         }
+
+        // When click Hide Overlay Message button
+        hideOverlayBtn.onclick = function() {
+            const isChecked = overlayInput.checked
+
+            if (isChecked) {
+                _this.isHiddenOverlay = !_this.isHiddenOverlay
+                _this.setConfig('isHiddenOverlay', _this.isHiddenOverlay)
+                overlayBg.classList.add('hide-overlay')
+            } else {
+                _this.isHiddenOverlay = false
+                overlayBg.classList.add('hide-overlay')
+            }
+        }
     },
 
     /* Load the localStorage config when the app is launched */
     loadConfig() {
         this.isRepeat = this.config.isRepeat
         this.isRandom = this.config.isRandom
+        this.isHiddenOverlay = this.config.isHiddenOverlay
         randomBtn.classList.toggle('active', this.isRandom)
         repeatBtn.classList.toggle('active', this.isRepeat)
+        overlayBg.classList.toggle('hide-overlay', !this.isHiddenOverlay)
+        console.log('Load config this.isHiddenOverlay: ', this.isHiddenOverlay)
     },
 
     /* Load the current song */

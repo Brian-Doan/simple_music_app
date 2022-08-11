@@ -227,7 +227,6 @@ html {
 
 .song .title {
     display: block;
-    max-width: 250px;
     font-size: 1.8rem;
     color: var(--text-color);
     overflow: hidden;
@@ -304,4 +303,82 @@ html {
     background-color: #eee;
     padding: 10px 0;
 }
+
+/* ---- CSS Overlay ---- */
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 480px;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.overlay__msg {
+    display: block;
+    width: 70%;
+    padding: 20px 30px;
+    color: var(--text-color);
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0px 5px 5px rgba(0,0,0,0.15);
+}
+
+.overlay__notification p {
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+.overlay__action {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-confirm {
+    background-color: var(--primary-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    border-radius: 4px;
+}
+
+.btn-confirm:hover {
+    filter: brightness(1.05);
+}
+
+.btn-confirm .overlay__button-body {
+    color: var(--white-color);
+}
+
+.btn-confirm .overlay__button-body span {
+    color: var(--white-color);
+    margin: 0 4px;
+}
+
+input#overlay-confirm {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.overlay__hide-msg {
+    display: flex;
+}
+
+.overlay__hide-msg p i {
+    color: red;
+}
+
+.hide-overlay {
+    display: none;
+}
+
+
 
