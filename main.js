@@ -18,8 +18,6 @@ const overlayMsg = $('.overlay__msg')
 const overlayInput = $('#overlay-confirm')
 const hideOverlayBtn = $('.btn-confirm')
 
-console.log('overlayInput checked: ', overlayInput.checked)
-
 const PLAYER_STORAGE_KEY = "Mon's Beat"
 
 const app = {
@@ -28,7 +26,7 @@ const app = {
     isRepeat: false,
     isRandom: false,
     isHiddenOverlay: false,
-    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || { "isHiddenOverlay":false },
 
     songs: [
         {
