@@ -394,6 +394,17 @@ const app = {
             const playedTime = audio.duration / 100 * e.target.value
             audio.currentTime = playedTime
         }
+        
+        // When drag the volume bar
+        volume.onchange = function(e) {
+            audio.volume = e.target.value / 100
+            volumeValue.innerHTML = e.target.value
+            volumeValue.style.display = 'block'
+
+            setTimeout(function() {
+                volumeValue.style.display = 'none'
+            },1000)
+        }
 
         // When drag the volume bar
         volume.onchange = function(e) {
