@@ -321,7 +321,7 @@ html {
 .overlay__msg {
     display: block;
     width: 70%;
-    padding: 20px 30px;
+    padding: 20px 20px;
     color: var(--text-color);
     background-color: #fff;
     border-radius: 4px;
