@@ -489,7 +489,7 @@ const app = {
         randomBtn.classList.toggle('active', this.isRandom)
         repeatBtn.classList.toggle('active', this.isRepeat)
         overlayBg.classList.toggle('hide-overlay', this.isHiddenOverlay)
-        console.log('Load config this.isHiddenOverlay: ', this.isHiddenOverlay)
+        //console.log('Load config this.isHiddenOverlay: ', this.isHiddenOverlay)
     },
 
     /* Load the current song */
