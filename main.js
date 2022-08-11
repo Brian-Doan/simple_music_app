@@ -8,6 +8,8 @@ const thumbnailImg = $('.thumbnail__img')
 const audio = $('#audio')
 const togglePlayBtn = $('.btn-toggle-play')
 const progress = $('#progress')
+const volume = $('.volume-bar')
+const volumeValue = $('#volume-value')
 const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random')
@@ -392,6 +394,17 @@ const app = {
             const playedTime = audio.duration / 100 * e.target.value
             audio.currentTime = playedTime
         }
+        
+        // When drag the volume bar
+        volume.onchange = function(e) {
+            audio.volume = e.target.value / 100
+            volumeValue.innerHTML = e.target.value
+            volumeValue.style.display = 'block'
+
+            setTimeout(function() {
+                volumeValue.style.display = 'none'
+            },1000)
+        }
 
         // When click Next button
         nextBtn.onclick = function() {
@@ -460,7 +473,7 @@ const app = {
                 _this.loadCurrentSong()
                 audio.play()
                 _this.render()
-                _this.scrollToActiveSong()
+                _this.scrollActiveSongIntoView()
             }
         }
 
