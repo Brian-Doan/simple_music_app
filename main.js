@@ -473,7 +473,7 @@ const app = {
                 _this.loadCurrentSong()
                 audio.play()
                 _this.render()
-                _this.scrollToActiveSong()
+                _this.scrollActiveSongIntoView()
             }
         }
 
@@ -499,7 +499,7 @@ const app = {
         this.isHiddenOverlay = this.config.isHiddenOverlay
         randomBtn.classList.toggle('active', this.isRandom)
         repeatBtn.classList.toggle('active', this.isRepeat)
-        overlayBg.classList.toggle('hide-overlay', this.isHiddenOverlay)
+        overlayBg.classList.toggle('hide-overlay', !this.isHiddenOverlay)
         // console.log('Load config this.isHiddenOverlay: ', this.isHiddenOverlay)
     },
 
