@@ -33,7 +33,7 @@
                     <h2 class="thumbnail__title"></h2>
                 </div>
                 
-                <!-- Control - Khu vực điều khiển -->
+                <!-- Control - Khu vực điều khiển chính -->
                 <div class="control">
                     <!-- Nút replay -->
                     <div class="btn btn-repeat">
@@ -58,8 +58,15 @@
                     </div>
                 </div>
                 
-                <!-- Input type=range hiển thị thanh điều khiển thời gian của bài hát -->
-                <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+                <div class="sub-control">
+                    <!-- Input type=range hiển thị thanh điều khiển thời gian của bài hát -->
+                    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+                    <div class="volume-control">
+                        <span><i class="fa-solid fa-volume-off"></i></span>
+                        <input id="volume-bar" class="volume-bar" type="range" value="50" step="1" min="0" max="100">
+                        <label for="volume-bar" id="volume-value"></label>
+                    </div>
+                </div>
                 
                 <!-- Thẻ audio để phát nhạc -->
                 <audio id="audio" src="" preload="none"></audio> 

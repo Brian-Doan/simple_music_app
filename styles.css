@@ -130,14 +130,6 @@ html {
     background-color: var(--primary-color);
 }
 
-/* .control .btn-toggle-play .icon-pause {
-    display: inline-block;
-}
-
-.control .btn-toggle-play .icon-play {
-    display: none;
-} */
-
 .container .icon-pause {
     display: none;
 }
@@ -150,9 +142,16 @@ html {
     display: none;
 }
 
-/* ---- CSS Progress bar ---- */
+/* ---- CSS Sub-control Section ---- */
+.sub-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
 .progress {
-    width: 100%;
+    width: 70%;
     -webkit-appearance: none;
     height: 6px;
     border-top-left-radius: 5px;
@@ -174,6 +173,71 @@ html {
     border-radius: 50%;
     background-color: var(--primary-color);
     cursor: pointer;
+}
+
+.volume-control {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.volume-control span {
+    font-size: 1.6rem;
+    margin: 0 5px 0 10px;
+    color: #666;
+}
+
+.volume-bar {
+    width: 70%;
+    -webkit-appearance: none;
+    height: 6px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+.volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+#volume-value {
+    position: absolute;
+    top: -25px;
+    left: 29px;
+    width: 30px;
+    height: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    display: none;
+}
+
+#volume-value::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    border-top: 10px solid var(--primary-color);
+    border-right: 10px solid transparent;
 }
 
 /* ---- CSS Song Playlist ---- */
@@ -321,7 +385,7 @@ html {
 .overlay__msg {
     display: block;
     width: 70%;
-    padding: 20px 30px;
+    padding: 20px 20px;
     color: var(--text-color);
     background-color: #fff;
     border-radius: 4px;

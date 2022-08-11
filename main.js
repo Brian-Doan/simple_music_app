@@ -8,6 +8,8 @@ const thumbnailImg = $('.thumbnail__img')
 const audio = $('#audio')
 const togglePlayBtn = $('.btn-toggle-play')
 const progress = $('#progress')
+const volume = $('.volume-bar')
+const volumeValue = $('#volume-value')
 const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random')
@@ -18,8 +20,6 @@ const overlayMsg = $('.overlay__msg')
 const overlayInput = $('#overlay-confirm')
 const hideOverlayBtn = $('.btn-confirm')
 
-console.log('overlayInput checked: ', overlayInput.checked)
-
 const PLAYER_STORAGE_KEY = "Mon's Beat"
 
 const app = {
@@ -28,7 +28,7 @@ const app = {
     isRepeat: false,
     isRandom: false,
     isHiddenOverlay: false,
-    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || { "isHiddenOverlay":false },
 
     songs: [
         {
@@ -395,6 +395,17 @@ const app = {
             audio.currentTime = playedTime
         }
 
+        // When drag the volume bar
+        volume.onchange = function(e) {
+            audio.volume = e.target.value / 100
+            volumeValue.innerHTML = e.target.value
+            volumeValue.style.display = 'block'
+
+            setTimeout(function() {
+                volumeValue.style.display = 'none'
+            },1000)
+        }
+
         // When click Next button
         nextBtn.onclick = function() {
             if (_this.isRandom) {
@@ -488,8 +499,8 @@ const app = {
         this.isHiddenOverlay = this.config.isHiddenOverlay
         randomBtn.classList.toggle('active', this.isRandom)
         repeatBtn.classList.toggle('active', this.isRepeat)
-        overlayBg.classList.toggle('hide-overlay', !this.isHiddenOverlay)
-        console.log('Load config this.isHiddenOverlay: ', this.isHiddenOverlay)
+        overlayBg.classList.toggle('hide-overlay', this.isHiddenOverlay)
+        // console.log('Load config this.isHiddenOverlay: ', this.isHiddenOverlay)
     },
 
     /* Load the current song */
