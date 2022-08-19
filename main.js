@@ -173,7 +173,7 @@ const app = {
         },
         {
             name: 'Mashup Phan Mạnh Quỳnh',
-            path: './assets/songs/Mashup_Phan_Manh_Quynh.mp3.mp3',
+            path: './assets/songs/Mashup_Phan_Manh_Quynh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
