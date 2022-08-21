@@ -204,7 +204,6 @@ const app = {
         },
         {
             name: 'Mashup Phan Mạnh Quỳnh',
-            gerne: 'sad',
             path: './assets/songs/Mashup_Phan_Manh_Quynh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
