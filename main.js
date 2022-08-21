@@ -14,6 +14,9 @@ const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random')
 const repeatBtn = $('.btn-repeat')
+const allFilterBtn = $('#all')
+const happyFilterBtn = $('#happy')
+const sadFilterBtn = $('#sad')
 const playlist = $('.playlist')
 const overlayBg = $('.overlay')
 const overlayMsg = $('.overlay__msg')
@@ -34,270 +37,324 @@ const app = {
         {
             name: 'Ai chung tình được mãi',
             path: './assets/songs/Ai_chung_tinh_duoc_mai.mp3',
+            gerne: 'sad',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Ai là người thương em - Rap version',
+            gerne: 'sad',
             path: './assets/songs/Ai_la_nguoi_thuong_em_rap_version.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Ai rồi cũng khác',
+            gerne: 'sad',
             path: './assets/songs/Ai_roi_cung_khac.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Ánh nắng của anh',
+            gerne: 'happy',
             path: './assets/songs/Anh_nang_cua_anh_guitar.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'As long as you love me - Duet with Bieber',
+            gerne: 'happy',
             path: './assets/songs/As_long_as_you_love_me_duet.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Cánh hồng phai',
+            gerne: 'sad',
             path: './assets/songs/Canh_hong_phai.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Chân tình',
+            gerne: 'happy',
             path: './assets/songs/Chan_tinh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Chiều nay không có mưa bay',
+            gerne: 'sad',
             path: './assets/songs/Chieu_nay_khong_co_mua_bay.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Chuyện của mùa đông',
+            gerne: 'happy',
             path: './assets/songs/Chuyen_cua_mua_dong.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Chuyện tình người trinh nữ tên Thi',
+            gerne: 'sad',
             path: './assets/songs/Chuyen_tinh_nguoi_trinh_nu_ten_thi.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Có khi nào rời xa - Guitar Solo',
+            gerne: 'sad',
             path: './assets/songs/Co_khi_nao_roi_xa_guitar_solo.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Công chúa bong bóng',
+            gerne: 'sad',
             path: './assets/songs/Cong_chua_bong_bong.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Crying over you - Rap only',
+            gerne: 'sad',
             path: './assets/songs/Crying_over_you_only_rap.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Diễm xưa',
+            gerne: 'sad',
             path: './assets/songs/Diem_xua.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Diễm xưa - Guitar Solo',
+            gerne: 'sad',
             path: './assets/songs/Diem_xua_guitar_solo.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Đúng người đúng thời điểm',
+            gerne: 'happy',
             path: './assets/songs/Dung_nguoi_dung_thoi_diem.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Đừng quên tên anh',
+            gerne: 'sad',
             path: './assets/songs/Dung_quen_ten_anh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Em dạo này',
+            gerne: 'happy',
             path: './assets/songs/Em_dao_nay.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Gặp nhưng không ở lại',
+            gerne: 'sad',
             path: './assets/songs/Gap_nhung_khong_o_lai.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Giấc mơ chỉ là giấc mơ',
+            gerne: 'sad',
             path: './assets/songs/Giac_mo_chi_la_giac_mo.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Gió vẫn hát',
+            gerne: 'happy',
             path: './assets/songs/Gio_van_hat.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Gió vẫn hát - Guitar',
+            gerne: 'happy',
             path: './assets/songs/Gio_van_hat_guitar.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Giữa mây ngàn',
+            gerne: 'happy',
             path: './assets/songs/Giua_may_ngan.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Katy Katy',
+            gerne: 'happy',
             path: './assets/songs/Katy_katy.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Khi cô đơn em nhớ ai',
+            gerne: 'happy',
             path: './assets/songs/Khi_co_don_em_nho_ai.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Khi người lớn cô đơn',
+            gerne: 'sad',
             path: './assets/songs/Khi_nguoi_lon_co_don.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Không quan tâm - Short',
+            gerne: 'sad',
             path: './assets/songs/Khong_quan_tam_short.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Lạ lùng',
+            gerne: 'sad',
             path: './assets/songs/La_lung.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Mashup Phan Mạnh Quỳnh',
-            path: './assets/songs/Mashup_Phan_Manh_Quynh.mp3.mp3',
+            gerne: 'sad',
+            path: './assets/songs/Mashup_Phan_Manh_Quynh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Melancholy',
+            gerne: 'sad',
             path: './assets/songs/Melancholy.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Một thời đã xa',
+            gerne: 'sad',
             path: './assets/songs/Mot_thoi_da_xa.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Nếu em đi',
+            gerne: 'sad',
             path: './assets/songs/Neu_em_di.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Nếu như',
+            gerne: 'sad',
             path: './assets/songs/Neu_nhu.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Ngày mai sẽ khác',
+            gerne: 'sad',
             path: './assets/songs/Ngay_mai_se_khac.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Người ta nói',
+            gerne: 'sad',
             path: './assets/songs/Nguoi_ta_noi.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Nhạc chế Trung thu',
+            gerne: 'happy',
             path: './assets/songs/Nhac_che_trung_thu.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Nhỏ ơi',
+            gerne: 'happy',
             path: './assets/songs/Nho_oi.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Nơi này có anh',
+            gerne: 'happy',
             path: './assets/songs/Noi_nay_co_anh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Nửa vầng trăng - Không Beat',
+            gerne: 'sad',
             path: './assets/songs/Nua_vang_trang_nobeat.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Phai dấu cuộc tình',
+            gerne: 'sad',
             path: './assets/songs/Phai_dau_cuoc_tinh.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Phố không em',
+            gerne: 'sad',
             path: './assets/songs/Pho_khong_em.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Real love',
+            gerne: 'happy',
             path: './assets/songs/Real_love.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Talking to the moon - Rap version',
+            gerne: 'sad',
             path: './assets/songs/Talking_to_the_moon_rap_ver.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Thất tình',
+            gerne: 'sad',
             path: './assets/songs/La_lung.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Thương lắm mình ơi - Không Beat',
+            gerne: 'happy',
             path: './assets/songs/Thuong_lam_minh_oi_nobeat.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Tình đơn côi',
+            gerne: 'sad',
             path: './assets/songs/Tinh_don_coi.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Tình em là đại dương - Không Beat',
+            gerne: 'sad',
             path: './assets/songs/Tinh_em_la_dai_duong_nobeat.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Tình thôi xót xa',
+            gerne: 'happy',
             path: './assets/songs/Tinh_thoi_xot_xa.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Tình yêu mang theo',
+            gerne: 'sad',
             path: './assets/songs/Tinh_yeu_mang_theo.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Từ chối nhẹ nhàng thôi',
+            gerne: 'sad',
             path: './assets/songs/Tu_choi_nhe_nhang_thoi.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Tự tâm - Short',
+            gerne: 'sad',
             path: './assets/songs/Tu_tam_short.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Tuổi đá buồn',
+            gerne: 'sad',
             path: './assets/songs/Tuoi_da_buon.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'Tuyết rơi mùa hè',
+            gerne: 'sad',
             path: './assets/songs/Tuyet_roi_mua_he.mp3',
             thumb: './assets/image/thumb.jpg'
         },
         {
             name: 'You and only You - Nhạc Thái',
+            gerne: 'happy',
             path: './assets/songs/You_and_only_you.mp3',
             thumb: './assets/image/thumb.jpg'
         },
@@ -356,6 +413,10 @@ const app = {
 
             thumbnail.style.width = newTop > 0 ? newTop + 'px' : 0
             thumbnail.style.opacity = newTop / thumbnailWidth
+
+            allFilterBtn.style.display = newTop < 0 ? 'none' : 'flex'
+            happyFilterBtn.style.display = newTop < 0 ? 'none' : 'flex'
+            sadFilterBtn.style.display = newTop < 0 ? 'none' : 'flex'
         }
 
         // Toggle Play/Pause button when click
@@ -500,6 +561,47 @@ const app = {
                 _this.isHiddenOverlay = false
                 overlayBg.classList.add('hide-overlay')
             }
+        }
+
+        // When click All Songs Filter button
+        allFilterBtn.onclick = function() {
+            _this.render()
+        }
+
+        // When click Happy Songs Filter button
+        happyFilterBtn.onclick = function() {
+            const htmls = _this.songs.filter((song) => {
+                return song.gerne === 'happy'
+            }).map((song, index) => {
+                return `
+                    <div class="song ${index === _this.currentIndex ? 'active' : ''}" data-index=${index}>
+                        <div class="thumb" style="background-image: url('${song.thumb}')"></div>
+                        <div class="body">
+                            <h3 class="title">${song.name}</h3>
+                        </div>
+                    </div>
+                `
+            })
+    
+            playlist.innerHTML = htmls.join('')
+        }
+
+        // When click Sad Songs Filter button
+        sadFilterBtn.onclick = function() {
+            const htmls = _this.songs.filter((song) => {
+                return song.gerne === 'sad'
+            }).map((song, index) => {
+                return `
+                    <div class="song ${index === _this.currentIndex ? 'active' : ''}" data-index=${index}>
+                        <div class="thumb" style="background-image: url('${song.thumb}')"></div>
+                        <div class="body">
+                            <h3 class="title">${song.name}</h3>
+                        </div>
+                    </div>
+                `
+            })
+    
+            playlist.innerHTML = htmls.join('')
         }
     },
 

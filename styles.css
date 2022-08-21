@@ -5,6 +5,12 @@
     font-weight: 700;
 }
 
+@font-face {
+    font-family: Sanseriffic;
+    src: url('./assets/fonts/Sanseriffic.otf');
+    font-weight: bolder;
+}
+
 /* ---------- Global CSS ---------- */
 :root {
     --primary-color: #f78b42;
@@ -41,7 +47,7 @@ html {
 /* ---------- CSS Header ---------- */
 .header {
     text-align: center;
-    font-family: Cocogoose_700;
+    font-family: Sanseriffic;
     font-size: 2rem;
     line-height: 4rem;
     font-weight: 700;
@@ -240,11 +246,40 @@ html {
     border-right: 10px solid transparent;
 }
 
+/* ---- CSS Filter Buttons ---- */
+.filter_buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    margin: 10px 0;
+}   
+
+.filter_buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    margin: 5px 10px 0;
+    color: var(--primary-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.filter_buttons button i {
+    margin-left: 10px;
+}
+
 /* ---- CSS Song Playlist ---- */
 .playlist {
     /* Vì .dashboard có position:fixed nên cần margin-top để 
     .playlist không bị .dashboard đè lên */
-    margin: 485px auto 0;
+    margin: 530px auto 0;
     padding: 8px 12px 0 12px;
 }
 
